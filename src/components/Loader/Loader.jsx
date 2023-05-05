@@ -1,5 +1,5 @@
 import { RotatingLines } from 'react-loader-spinner';
-import RotatingLines from './Loader/Loader'; 
+//import RotatingLines from './Loader/Loader'; 
 
 <RotatingLines 
     visible={this.props.visible}
