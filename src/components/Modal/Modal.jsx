@@ -9,7 +9,6 @@ class Modal extends Component {
         this.handleKeyDown = (e) => {
             if (e.code === "Escape") {
                 this.props.onClose();
-                this.removeListener();
             }
         };
         window.addEventListener('keydown', this.handleKeyDown);

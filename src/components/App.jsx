@@ -36,10 +36,12 @@ class App extends Component {
         if (response.ok) { return response.json() }
         return Promise.reject(new Error("There is no Pictures for your request!"))
       })
-      .then(pictures => this.setState({
-        pictures, status: 'resolved',
-        loadMore: this.state.page < Math.ceil(pictures.totalHits / 12)
-      }))
+      .then(pictures => this.setState( prevState => ({
+        pictures: [...prevState.pictures, ...pictures.hits],
+        status: 'resolved',
+        loadMore: this.state.page < Math.ceil(pictures.totalHits / 12),
+      })
+      ))
       .catch(error => this.setState({ error, status: 'rejected' }))
   }
 
@@ -55,8 +57,10 @@ class App extends Component {
   };
 
   onloadMore = () => {
-    this.setState(prevState => (
-      { page: prevState.page + 1 })
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }
+    )
     );
   };
 

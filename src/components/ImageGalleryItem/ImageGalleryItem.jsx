@@ -18,4 +18,6 @@ ImageGalleryItem.propTypes = {
     onOpen: PropTypes.func.isRequired,
     src: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
 };
