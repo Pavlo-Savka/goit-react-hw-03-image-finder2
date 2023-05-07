@@ -35,7 +35,6 @@ class ImageGallrey extends Component {
                             this.props.pictures.map((i) => (
                                 <ImageGalleryItem
                                     key={i.id}
-                                    id={i.id}
                                     src={i.webformatURL}
                                     href={i.largeImageURL}
                                     alt={i.tags}
@@ -51,5 +50,9 @@ export default ImageGallrey;
 
 ImageGallrey.propTypes = {
 
-    pictures: PropTypes.array.isRequired,
+    pictures: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+        })
+    ).isRequired,
 };
